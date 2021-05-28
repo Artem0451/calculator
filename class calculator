@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class calkulator {
+private:
+	float num_1, num_2;
+
+public:
+	
+	int plus(int x, int y) {
+		x = x + y;
+		return x;
+	}
+	int minus(int x, int y) {
+		x = x - y;
+		return x;
+	}
+	void setnum(int x, int y) {
+		x = num_1;
+		y = num_2;
+	}
+	
+};
+class calkulator_son :public calkulator {
+public:
+	int dilint(int x, int y) {
+		if (y != 0) {
+			x = x % y;
+			cout<<"остаточное деление= "<< x << endl;
+			return x;
+		}
+		else {
+			cout << "деление на ноль!!!" << endl;
+		}
+	}
+	int div(int x, int y) {
+		if (y != 0) {
+			x = x / y;
+			cout<<"деление= "<< x << endl;
+			return x;
+		}
+		else{
+			cout << "деление на ноль!!!" << endl;
+		}
+	}
+	int mul(int x, int y) {
+		x = x * y;
+		return x;
+	}
+};
+
+int main()
+{
+	setlocale(0, "");
+	float num_1, num_2;
+	cout << "введите 2 числа: первое= "; cin >> num_1; cout << "второе= "; cin >> num_2;
+	calkulator_son ex;
+	int plus, minus, mul, div, dilint, divdiv;
+	ex.setnum(num_1, num_2);
+	plus = ex.plus(num_1, num_2);
+	cout <<"сумма= "<< plus << endl;
+	minus = ex.minus(num_1, num_2);
+	cout <<"разность= "<< minus << endl;
+	mul = ex.mul(num_1, num_2);
+	cout <<"произведение= "<< mul << endl;
+	div = ex.div(num_1, num_2);
+	dilint = ex.dilint(num_1, num_2);
+}
